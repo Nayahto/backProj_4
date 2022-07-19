@@ -1,0 +1,125 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "tittle": "morty rick Api",
+        "description": "api para junção com o front-end",
+        "termsaOfService": "",
+        "contact": {
+            "Email": "izau.sa.135@gmail.com"
+        },
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3001/",
+            "description": "link para teste"
+        },
+        { "url": "*link do deploy*", "description": "link para produção" }
+    ],
+    "paths": {
+        "/create": {
+            "post": {
+                "summary": "rota geral dos indices",
+                "description": "rota responsavel por todos os indices ",
+                "tags": ["Novo usuario"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "newUser": {
+                                    "value": {
+                                        "name": "ricardo nascimento",
+                                        "username": "chaolin matador de porco",
+                                        "Email": "email@gmail.com",
+                                        "senha": "1168asdhau273467asdhu.",
+                                        "avatar": "https://preview.redd.it/qqlv2zalbro81.jpg?auto=webp&s=ecd9bf574664df4470df2f3bd15503a3c683e229"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Usuario nao cadastrado"
+                    },
+                    "200": {
+                        "description": "usuario cadastrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {
+                                        "$href": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "listar todos os usuarios",
+                "description": "rota responsavel por encontrar todos os usuarios ",
+                "tags": ["Encontrar"],
+                "responses": {
+                    "404": {
+                        "description": "contêudo não encontrado"
+                    },
+                    "200": {
+                        "description": "contêudo encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "validacao do usuario",
+                "description": "rota responsavel pela autorização e autentificacao do usuario",
+                "tags": ["login"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "login": {
+                                    "value": {
+                                        "Email": "email@gmail.com",
+                                        "senha": "1168asdhau273467asdhu."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "nao foi possivel cadastrar o item, dados faltando!"
+                    },
+                    "200": {
+                        "description": "contêudo encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
